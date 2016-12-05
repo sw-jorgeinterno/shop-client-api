@@ -1,1 +1,0 @@
-api: nodemon server.js
