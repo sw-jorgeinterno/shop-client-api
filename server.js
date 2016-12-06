@@ -26,6 +26,10 @@ proxy.on('error', (e) => {
 
 console.log(APP_API_URL);
 
+
+// initialize routes
+routes.init(server, proxy);
+
 const customRegex = /^\/mobile.*$/;
 
 // source https://gist.github.com/jeffwhelpley/5417758
@@ -77,8 +81,6 @@ server.get('/api-docs.json', function(req, res, next) {
   return next();
 });
 
-// initialize routes
-routes.init(server, proxy);
 
 server.listen(PORT, () => {
   console.log('%s listening at %s', server.name, server.url);
