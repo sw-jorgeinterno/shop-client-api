@@ -25,16 +25,16 @@ proxy.on('error', (e) => {
 });
 
 console.log(APP_API_URL);
+console.log(NON_PROXY_PATH);
 
 
 // initialize routes
 routes.init(server, proxy);
 
-const customRegex = /^\/mobile.*$/;
-
 // source https://gist.github.com/jeffwhelpley/5417758
 var wrapper = function(middleware) {
     return function(req, res, next) {
+        console.log(req.url);
         // if url is a custom request, invoke middleware
         if(req.url.startsWith(NON_PROXY_PATH)) {
           console.log("NOT");
