@@ -1,4 +1,4 @@
 # SHOP-CLIENT-API
 ---
 
-test description
+Client API for shop 
