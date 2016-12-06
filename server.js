@@ -1,5 +1,4 @@
 'use strict';
-require('dotenv').config();
 
 const PORT            = process.env.PORT || 8080;
 const APP_API_URL     = process.env.APP_API_URL || 'localhost';
@@ -34,6 +33,7 @@ routes.init(server, proxy);
 // source https://gist.github.com/jeffwhelpley/5417758
 var wrapper = function(middleware) {
     return function(req, res, next) {
+        console.log("WRAPPER MIDDLEWARE");
         console.log(req.url);
         // if url is a custom request, invoke middleware
         if(req.url.startsWith(NON_PROXY_PATH)) {
