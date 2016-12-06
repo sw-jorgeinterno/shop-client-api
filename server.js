@@ -54,10 +54,6 @@ var wrapper = function(middleware) {
 }
 
 
-// initialize routes
-routes.init(server, proxy);
-
-
 server.pre(restify.pre.userAgentConnection());
 server.pre(restify.pre.sanitizePath());
 
@@ -69,6 +65,10 @@ server.use(wrapper(restify.queryParser()));
 server.use(wrapper(restify.bodyParser({ mapParams: false })));
 server.use(wrapper(restify.gzipResponse()));
 
+
+
+// initialize routes
+routes.init(server, proxy);
 
 // ======== Swagger endpoint ========= //
 server.get('/api-docs.json', function(req, res, next) {
