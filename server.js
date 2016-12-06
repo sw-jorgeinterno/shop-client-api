@@ -27,9 +27,6 @@ console.log(APP_API_URL);
 console.log(NON_PROXY_PATH);
 
 
-// initialize routes
-routes.init(server, proxy);
-
 // source https://gist.github.com/jeffwhelpley/5417758
 var wrapper = function(middleware) {
     return function(req, res, next) {
@@ -54,6 +51,10 @@ var wrapper = function(middleware) {
         }
     };
 }
+
+
+// initialize routes
+routes.init(server, proxy);
 
 
 server.pre(restify.pre.userAgentConnection());
