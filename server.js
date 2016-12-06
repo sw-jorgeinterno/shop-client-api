@@ -29,8 +29,9 @@ console.log(NON_PROXY_PATH);
 
 // source https://gist.github.com/jeffwhelpley/5417758
 var wrapper = function(middleware) {
+    console.log("WRAPPER MIDDLEWARE");
     return function(req, res, next) {
-        console.log("WRAPPER MIDDLEWARE");
+        console.log("WRAPPER MIDDLEWARE RETURN");
         console.log(req.url);
         // if url is a custom request, invoke middleware
         if(req.url.startsWith(NON_PROXY_PATH)) {
@@ -60,6 +61,7 @@ routes.init(server, proxy);
 server.pre(restify.pre.userAgentConnection());
 server.pre(restify.pre.sanitizePath());
 
+console.log("LOADING MIDDLEWARES");
 // ======== restify middleware ======= //
 server.use(wrapper(restify.acceptParser(server.acceptable)));
 server.use(wrapper(restify.authorizationParser()));
