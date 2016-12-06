@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 
 const PORT            = process.env.PORT || 8080;
 const APP_API_URL     = process.env.APP_API_URL || 'localhost';
