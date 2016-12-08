@@ -1,0 +1,125 @@
+{
+  "projectConfig": {
+    "name": "shop-client-api",
+    "version": "1.0.0",
+    "description": "test description",
+    "author": "Jorge Interno",
+    "entryFile": "server.js"
+  },
+  "environment": {
+    "target": {
+      "envName": "APP_API_URL",
+      "value": "https://www.mysale.ph"
+    },
+    "baseResourcePath": {
+      "envName": "BASE_RESOURCE_PATH",
+      "value": "/"
+    },
+    "nonProxyPath": {
+      "envName": "NON_PROXY_PATH",
+      "value": "/mobile"
+    },
+    "port": {
+      "envName": "PORT",
+      "value": 8080
+    }
+  },
+  "routes": [
+    {
+      "isProxy": true,
+      "method": "get",
+      "name": "getBannerSalesProxy",
+      "routeUrl": "/ApacHandlers.ashx/GetSalesBanners",
+      "implPath": "impl",
+      "filename": "getBannerSalesProxy.js",
+      "swaggerConfig": {
+        "method": "get",
+        "description": "Proxy endpoint for querying banner sales",
+        "produces": "application/json",
+        "parameters": [
+          { "name": "saleCategoryID",
+            "props": [ {"description": "saleCategoryID"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "topSalesCount",
+            "props": [ {"description": "topSalesCount"}, {"required": true}, {"type": "number"}, {"in": "query"}]
+          },
+          { "name": "getBigImages",
+            "props": [ {"description": "getBigImages"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "getPromotion",
+            "props": [ {"description": "getPromotion"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "getPriorityStartDate",
+            "props": [ {"description": "getPriorityStartDate"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "useOzsaleSize",
+            "props": [ {"description": "useOzsaleSize"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "groupNo",
+            "props": [ {"description": "groupNo"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "languageID",
+            "props": [ {"description": "languageID"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "countryID",
+            "props": [ {"description": "countryID"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "userGroup",
+            "props": [ {"description": "userGroup"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          }
+        ],
+        "responses": [
+          { "status": 200, "description": "OK" }
+        ]
+      }
+    },
+    {
+      "isProxy": false,
+      "method": "get",
+      "name": "getBannerSalesNonProxy",
+      "routeUrl": "/ApacHandlers.ashx/GetSalesBanners",
+      "implPath": "impl",
+      "filename": "getBannerSalesNonProxy.js",
+      "swaggerConfig": {
+        "method": "get",
+        "description": "Custom endpoint for querying banner sales",
+        "produces": "application/json",
+        "parameters": [
+          { "name": "saleCategoryID",
+            "props": [ {"description": "saleCategoryID"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "topSalesCount",
+            "props": [ {"description": "topSalesCount"}, {"required": true}, {"type": "number"}, {"in": "query"}]
+          },
+          { "name": "getBigImages",
+            "props": [ {"description": "getBigImages"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "getPromotion",
+            "props": [ {"description": "getPromotion"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "getPriorityStartDate",
+            "props": [ {"description": "getPriorityStartDate"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "useOzsaleSize",
+            "props": [ {"description": "useOzsaleSize"}, {"required": true}, {"type": "boolean"}, {"in": "query"}]
+          },
+          { "name": "groupNo",
+            "props": [ {"description": "groupNo"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "languageID",
+            "props": [ {"description": "languageID"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "countryID",
+            "props": [ {"description": "countryID"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          },
+          { "name": "userGroup",
+            "props": [ {"description": "userGroup"}, {"required": true}, {"type": "string"}, {"in": "query"}]
+          }
+        ],
+        "responses": [
+          { "status": 200, "description": "OK" }
+        ]
+      }
+    }
+  ]
+}
